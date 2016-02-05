@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class LibraryDemo {
+	
+	private final static Scanner STDIN = new Scanner(System.in);
 
 	private final Library lib;
 
@@ -47,10 +49,9 @@ public class LibraryDemo {
      */
     private void searchBookInterface() {
         System.out.println("Please enter a Search Option:\n (1) Search By Title (2) Search By Author (3) Keyword Search");
-        Scanner scanner = new Scanner(System.in);
-        int userChoice = scanner.nextInt();
+        int userChoice = STDIN.nextInt();
         System.out.print("Enter your search term: ");
-        String query = scanner.next();
+        String query = STDIN.next();
         
         switch (userChoice) {
         	case 1:
@@ -65,7 +66,6 @@ public class LibraryDemo {
         	default:
         		break;
         }
-        scanner.close();
         return;
     }
     
@@ -88,18 +88,17 @@ public class LibraryDemo {
      */
     private void addBookInterface() {
         //change this function
-        Scanner scanner = new Scanner(System.in);
         System.out.println("Please enter the details of the book you want to add to the library");
         System.out.println("Enter the title of the book: ");
-        String title = scanner.nextLine();
+        String title = STDIN.nextLine();
         System.out.println("Enter the first name of the author: ");
-        String firstName = scanner.nextLine();
+        String firstName = STDIN.nextLine();
         System.out.println("Enter the last name of the author: ");
-        String lastName = scanner.nextLine();
+        String lastName = STDIN.nextLine();
         System.out.println("Enter the ISBN of the book: ");
-        String isbn = scanner.nextLine();
+        String isbn = STDIN.nextLine();
         System.out.println("Enter the publication date (YYYY-MM-DD)");
-        String publishDate = scanner.nextLine();
+        String publishDate = STDIN.nextLine();
         Author author = new Author();
         author.firstName = firstName;
         author.lastName = lastName;
@@ -109,7 +108,6 @@ public class LibraryDemo {
 		b.setISBN(isbn);
 		b.setPublishDate(publishDate);
         this.lib.addBook(b);
-        scanner.close();
         return;
     }
 
@@ -120,11 +118,10 @@ public class LibraryDemo {
     public void libraryInterface() {
         int userChoice = 0;
 
-        Scanner scanner = new Scanner(System.in);
         while (userChoice != 4) {
             System.out.println("Welcome to the Arcadia Library.");
             System.out.print("Please enter a choice: (1) Add a book, (2) Find a book, (3) Print Collection (4) Exit:");
-            userChoice = scanner.nextInt();
+            userChoice = STDIN.nextInt();
 
             switch (userChoice) {
                 case 1:
@@ -141,7 +138,7 @@ public class LibraryDemo {
             }
 
         }
-        scanner.close();
+        STDIN.close();
         System.out.println("Thank You for Using Arcadia Library !");
 
         return;

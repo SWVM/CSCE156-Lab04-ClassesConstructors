@@ -50,8 +50,9 @@ public class LibraryDemo {
     private void searchBookInterface() {
         System.out.println("Please enter a Search Option:\n (1) Search By Title (2) Search By Author (3) Keyword Search");
         int userChoice = STDIN.nextInt();
+        STDIN.nextLine();
         System.out.print("Enter your search term: ");
-        String query = STDIN.next();
+        String query = STDIN.nextLine();
         
         switch (userChoice) {
         	case 1:
